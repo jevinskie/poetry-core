@@ -81,6 +81,10 @@ class Metadata:
             meta.requires_python = format_python_constraint(package.python_constraint)
 
         meta.requires_dist = [d.to_pep_508() for d in package.requires]
+        try:
+            meta.requires_dist += [d.to_pep_508() for d in package.dependency_group("dev").dependencies]
+        except ValueError:
+            pass # no dev deps
 
         # Version 2.1
         if package.readmes:

@@ -172,11 +172,14 @@ class Factory:
 
                     continue
 
-                group.add_dependency(
-                    cls.create_dependency(
-                        name, constraint, groups=["dev"], root_dir=package.root_dir
-                    )
+                dep = cls.create_dependency(
+                    name, constraint, groups=["dev"], root_dir=package.root_dir
                 )
+                group.add_dependency(dep)
+                dep.in_extras.append("dev")
+                if "dev" not in package.extras:
+                    package.extras["dev"] = []
+                package.extras["dev"].append(dep)
 
             package.add_dependency_group(group)
 

@@ -1,3 +1,6 @@
+# Poetry Core - Fork Information
+This fork allows for editable installs with extras (like "foo[dev]").
+
 # Poetry Core
 [![PyPI version](https://img.shields.io/pypi/v/poetry-core)](https://pypi.org/project/poetry-core/)
 [![Python Versions](https://img.shields.io/pypi/pyversions/poetry-core)](https://pypi.org/project/poetry-core/)
